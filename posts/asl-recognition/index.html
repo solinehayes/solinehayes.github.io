@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang='en'><head>
+  <title>ASL Recognition | Soline Hayes</title>
+  <meta charset='utf-8'>
+  <meta name="generator" content="Hugo 0.78.2" />
+  <meta name = 'viewport' content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+  <meta http-equiv = 'X-UA-Compatible' content = 'IE=edge'>
+<meta property = 'og:locale' content = 'en_US' />
+<meta property="og:type" content="article">
+<meta property = 'og:title' content = 'ASL Recognition' />
+<meta name="description" content="Computer Vision Project - ASL Recognizer By Slimane Baamara and Soline Hayes
+Abstract The ASL language is a very important language allowing the people with …">
+<meta property = 'og:description' content = 'Computer Vision Project - ASL Recognizer By Slimane Baamara and Soline Hayes
+Abstract The ASL language is a very important language allowing the people with …'>
+<meta property = 'og:url' content = 'https://solinehayes.github.io/posts/asl-recognition/' />
+<meta property = 'og:image' content = 'images/%!s()'/>
+<meta name = 'twitter:card' content = 'summary_large_image' />
+<meta name = 'twitter:creator' content = ''>
+<meta name = 'twitter:title' content = 'ASL Recognition' />
+<meta property = 'twitter:description'  content = 'Computer Vision Project - ASL Recognizer By Slimane Baamara and Soline Hayes
+Abstract The ASL language is a very important language allowing the people with …'/>
+<meta name = 'twitter:image' content = 'images/%!s()' />
+<link rel='apple-touch-icon' sizes='180x180' href='https://solinehayes.github.io/images/icons/apple-touch-icon.png'>
+<link rel='icon' type='image/png' sizes='32x32' href='https://solinehayes.github.io/images/icons/favicon-32x32.png'>
+<link rel='icon' type='image/png' sizes='16x16' href='https://solinehayes.github.io/images/icons/favicon-16x16.png'>
+<link rel='manifest' href='https://solinehayes.github.io/images/icons/site.webmanifest'>
+
+  <link rel='canonical' href='https://solinehayes.github.io/posts/asl-recognition/'>
+  <link rel = 'stylesheet' href = 'https://solinehayes.github.io/css/styles.f29b59fde26c20ac66c7eece23f32198e5cccb77ff4cc5d05c00244aa1ac1441c2c2db7c47058e070a69f91e3caaba643c1f7bf3e4fb011e466dfb818117e295.css' integrity = 'sha512-8ptZ/eJsIKxmx&#43;7OI/MhmOXMy3f/TMXQXAAkSqGsFEHCwtt8RwWOBwpp&#43;R48qrpkPB978&#43;T7AR5GbfuBgRfilQ=='>
+</head>
+
+  <body><div class = 'nav-drop'>
+  <div class = 'nav-body'>
+    
+      <a href = 'https://solinehayes.github.io/about/' class = 'nav_item'>About</a>
+      <a href = 'https://solinehayes.github.io/posts/lab1-blog/' class = 'nav_item'>Blog Setup</a>
+      <a href = 'https://solinehayes.github.io/posts/lecture1-hyperreality/' class = 'nav_item'>Hyper Reality</a>
+      <a href = 'https://solinehayes.github.io/posts/lecture3-locomotioninvr/' class = 'nav_item'>Locomotion in VR</a>
+      <a href = 'https://solinehayes.github.io/posts/project-boatkartlocomotion/' class = 'nav_item'>Project</a>
+      <a href = 'https://solinehayes.github.io/posts/lab2-rollaball/' class = 'nav_item'>Roll A Ball</a>
+      <a href = 'https://solinehayes.github.io/posts/lecture2-ultimatedisplay/' class = 'nav_item'>Ultimate Display</a>
+      <a href = 'https://solinehayes.github.io/posts/lab1-unity/' class = 'nav_item'>Unity Setup</a>
+      <a href = 'https://solinehayes.github.io/posts/lab3-rollaballvr' class = 'nav_item'>VR Roll A Ball</a>
+    <div class = 'nav-close'></div>
+  </div>
+</div><header class = 'nav' >
+  <nav class = 'nav-menu'>
+    <a href='https://solinehayes.github.io' class = 'nav-brand nav_item'>Soline Hayes</a>
+    <div class = 'nav_bar-wrap'>
+      <div class = 'nav_bar'></div>
+    </div>
+  </nav>
+</header>
+
+
+    <main>
+  
+
+<section class = 'post_header' style = 'background-image:url(https://solinehayes.github.io/images/thumbnail.svg);'>
+  <h1 class='post_title'>ASL Recognition</h1>
+</section>
+<div class = 'post'>
+  <article class='post_content'><h1 id="computer-vision-project---asl-recognizer">Computer Vision Project - ASL Recognizer</h1>
+<p>By Slimane Baamara and Soline Hayes</p>
+<h2 id="abstract">Abstract</h2>
+<p>The ASL language is a very important language allowing the people with hearing disabilities to be understood but it is widely unknown. The goal of the project is to make the ASL language understandable by everyone by creating an interface translating the ASL alphabet sign into real sentences. First, the hand of the user is detected by the YOLO algorithm and then the sign executed is recognized with a Deep learning model. In the end, the letter is displayed on the interface and add up to create the sentences.
+<strong>Keywords:</strong> computer vision, deep learning, object recognition, ASL</p>
+<h2 id="introduction">Introduction</h2>
+<p>The American Sign Language (ASL) is a complete language created for the Deaf and the Hard of Hearing in order for them to communicate with other people and among themselves. The number of users range from 250,000 to 500,000 persons all over the world.
+The ASL is composed of the same number of signs as there are words.</p>
+<p>The ASL includes a sign alphabet called the American Manual Alphabet which is composed of 26 signs, one per each letter as you can see in figure 1. This is mostly used to spell out names or other English words.</p>
+<p>The ASL language allows the Deaf and the Hard of Hearing to understand and be understood. It allows them to be part of the society. However important the ASL language is, the number of speakers is still very low compared to the whole population.
+The goal of this project is to allow everyone to be able to understand the ASL language by creating a Transcryptor that will detect the sign made by a person and write its meaning on a user interface.</p>
+<p>The goal of this project is to be able to detect the signs made by a person in front of a webcam.
+The project is split in two parts. The first part is being able to detect the hand of the person signing and detect when a sign is made. The second part is being able to detect which particular sign is done in the previous image. Then the translation should be displayed on a user interface.</p>
+<h2 id="hand-detection">Hand Detection</h2>
+<p>In this section we expose the technique used to detect the hand in the camera snapshots than crop the counter containing the hand to provide it as an input to the sign recognition stage.
+This task is done using the combination of two approaches.
+A classic approach for detecting the contour of moving objects which shows an accurate detection of the hand when moving, but could include any moving object above some thresholds. In order to make the detection exclusive for moving hand we have used YOLO pretrained model.
+The Yolo pre-trained model for hand detection with percent confidence was used to detect the hands present in the image, this model showed accurate detection of hands in the frame, but still miss-detect some movements and provides counters that contain only parts of the hand.
+In order to enhance the hand detection of this model, we combine it with the classical approach which can provide better counters that contains the complete hand.</p>
+<h3 id="classical-approach-for-hand-detection">Classical approach for hand detection}</h3>
+<p><strong>Find and segment the hand region from the video sequence</strong></p>
+<ul>
+<li>Background Subtraction: First, we need to set a first frame as a background</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">originale<span style="color:#f92672">=</span>cv2<span style="color:#f92672">.</span>cvtColor(originale,
+cv2<span style="color:#f92672">.</span>COLOR_BGR2GRAY)
+originale<span style="color:#f92672">=</span>cv2<span style="color:#f92672">.</span>GaussianBlur(originale,
+(kernel_blur, kernel_blur), <span style="color:#ae81ff">0</span>)
+</code></pre></div><p>Then for each new frame we carry out the following operations:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#conversion to gray scale</span>
+gray<span style="color:#f92672">=</span>cv2<span style="color:#f92672">.</span>cvtColor(frame,
+cv2<span style="color:#f92672">.</span>COLOR_BGR2GRAY)
+<span style="color:#75715e">#smothing the image (denoising)</span>
+gray<span style="color:#f92672">=</span>cv2<span style="color:#f92672">.</span>GaussianBlur(gray,
+(kernel_blur, kernel_blur), <span style="color:#ae81ff">0</span>)
+<span style="color:#75715e">#Substract the background</span>
+mask<span style="color:#f92672">=</span>cv2<span style="color:#f92672">.</span>absdiff(originale, gray)
+</code></pre></div><ul>
+<li>Motion Detection and Thresholding: To detect the hand region from this difference image, we need to threshold the difference image, so that only our hand region becomes visible and all the other unwanted regions are painted as black.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Binarisation</span>
+
+mask<span style="color:#f92672">=</span>cv2<span style="color:#f92672">.</span>threshold(mask,threshold, <span style="color:#ae81ff">255</span>,
+cv2<span style="color:#f92672">.</span>THRESH_BINARY)[<span style="color:#ae81ff">1</span>]
+
+<span style="color:#75715e"># joining broken part of the image by</span>
+
+<span style="color:#75715e">#increasing the white region in the image</span>
+mask<span style="color:#f92672">=</span>cv2<span style="color:#f92672">.</span>dilate(mask, kernel_dilate,
+iterations<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>)
+</code></pre></div><ul>
+<li>Contour Extraction: After thresholding the difference image, we find contours in the resulting image. The contour with the largest area is assumed to be our hand.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#detect all the contours in the image</span>
+contours, nada<span style="color:#f92672">=</span>cv2<span style="color:#f92672">.</span>findContours(mask,
+cv2<span style="color:#f92672">.</span>RETR_EXTERNAL,
+cv2<span style="color:#f92672">.</span>CHAIN_APPROX_SIMPLE)
+
+<span style="color:#75715e"># Select only contours with</span>
+
+<span style="color:#75715e"># a surface above a threshold</span>
+
+<span style="color:#66d9ef">for</span> c <span style="color:#f92672">in</span> contours:
+<span style="color:#66d9ef">if</span> cv2<span style="color:#f92672">.</span>contourArea(c)<span style="color:#f92672">&lt;</span>surface:
+<span style="color:#66d9ef">continue</span>
+T<span style="color:#f92672">.</span>append(c)
+</code></pre></div><h3 id="yolo-for-hand-detection">YOLO for hand detection</h3>
+<p>This <a href="https://github.com/cansik/yolo-hand-detection">pre-trained network</a> is able to extract hands, by using the YOLOv3 neural network. YOLOv3 has 2 important files: yolov3.cfg and yolov3.weights. The file yolov3.cfg contains all information related to the YOLOv3 architecture and its parameters, whereas the file yolov3.weights contains the convolutional neural network (CNN) parameters of the YOLOv3 pre-trained weights.
+The data set used for training the model consists of the CMU Hand DB, the Egohands data set and the author own trained images.
+We have tested the 4 models (YOLOv3, YOLOv3-Tiny, YOLOv3-Tiny-PRN and YOLOv4-Tiny), and YOLOv3-Tiny-PRN performed the best detection in our case.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#We first start by loading the YOLO</span>
+<span style="color:#75715e">#network model into OpenCV</span>
+yolo <span style="color:#f92672">=</span> YOLO(<span style="color:#e6db74">&#34;models/cross-hands-tiny-prn.cfg&#34;</span>,
+<span style="color:#e6db74">&#34;models/cross-hands-tiny-prn.weights&#34;</span>, [<span style="color:#e6db74">&#34;hand&#34;</span>])
+<span style="color:#75715e">#We select the size = frame size</span>
+<span style="color:#75715e">#We select the confidence threshold above</span>
+<span style="color:#75715e">#which we detect the hand</span>
+yolo<span style="color:#f92672">.</span>size <span style="color:#f92672">=</span> <span style="color:#ae81ff">416</span>
+yolo<span style="color:#f92672">.</span>confidence <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.2</span>
+<span style="color:#75715e">#Get the detected counters (results)</span>
+<span style="color:#75715e">#detected in the frame</span>
+iw, ih, inference_time, results <span style="color:#f92672">=</span>
+yolo<span style="color:#f92672">.</span>inference(frame)
+</code></pre></div><h3 id="the-combination-of-the-two-approaches">The combination of the two approaches}</h3>
+<p>Since YOLO model detect well the hand but output small regions of hand, also it miss detect some movements, so we loop on the results detected by YOLO, and calculate the difference between the x centers of each counter detected from YOLO and the classical approach.
+If the difference is small, it means that the two counters coincide.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">d<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">for</span> detection <span style="color:#f92672">in</span> results:
+id, name, confidence, x, y, w, h <span style="color:#f92672">=</span> detection
+cx<span style="color:#f92672">=</span>x<span style="color:#f92672">+</span>(w<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)
+ <span style="color:#66d9ef">for</span> cnt <span style="color:#f92672">in</span> T:
+x1, y1, w1, h1<span style="color:#f92672">=</span>cv2<span style="color:#f92672">.</span>boundingRect(cnt)
+cx1<span style="color:#f92672">=</span>x1<span style="color:#f92672">+</span>(w1<span style="color:#f92672">/</span><span style="color:#ae81ff">2</span>)
+<span style="color:#66d9ef">if</span>(abs(cx1<span style="color:#f92672">-</span>cx)<span style="color:#f92672">&lt;=</span>s):
+d<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+<span style="color:#66d9ef">break</span>
+</code></pre></div><p>Then we merge the two results.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">if</span> d<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>:
+ X<span style="color:#f92672">=</span>min(x1,x)
+Y<span style="color:#f92672">=</span>min(y1,y)
+H<span style="color:#f92672">=</span>int(<span style="color:#ae81ff">1.25</span><span style="color:#f92672">*</span>max(h1,h))
+W<span style="color:#f92672">=</span>int(<span style="color:#ae81ff">1.25</span><span style="color:#f92672">*</span>max(w1,w))
+</code></pre></div><h2 id="sign-recognition-with-cnn">Sign recognition with CNN</h2>
+<p>Once we have a close up picture of the hand doing a gesture, the letter signed is detected with a Convolution Neural Network (CNN).
+For this section we are using the framework pytorch.</p>
+<h3 id="presentation-of-the-data-sets">Presentation of the data sets</h3>
+<p>The ASL Alphabet <a href="https://www.kaggle.com/grassknoted/asl-alphabet">data set</a> we&rsquo;ve used for training is composed of 87,000 images which are 200x200 pixels. There are 29 classes with each 3000 images.
+In addition to the 26 classes for each letter sign that we expected from such a data set, they&rsquo;ve added 3 new classes:</p>
+<ol>
+<li>nothing: where there is just pictures of backgrounds without hands.</li>
+<li>space: which is a newly created sign making the {\textvisiblespace} symbol with the hand.</li>
+<li>delete: Another coined sign where the hand is making a sort of bridge gesture.</li>
+</ol>
+<p>Those classes make this data set fitted to our requirement which is to be able to write sentences from the ASL language.</p>
+<p>As we can see in figure 1, &ldquo;J&rdquo; and &ldquo;Z&rdquo; are actually non-static gestures. However in this data set there are actually represented only as images.</p>
+<p>However this data set was very poor for testing, the test data set was only composed of 28 images (not even one per class).
+For the testing, we have decided to use the <a href="https://www.kaggle.com/danrasband/asl-alphabet-test">ASL Alphabet Test data set</a>. This data set contains the same classes as the training set. Compared to the other test data set, this one has 30 images per class which makes a total of 870 images of 200x200.
+This data set is composed of images with different backgrounds, lighting and hands which makes it good to test whether or not the pre-processing and the model are good.</p>
+<p><strong>Choosing the right data set</strong> Before finding those two data sets that fitted our expectations we were working with the MNIST <a href="https://www.kaggle.com/datamunge/sign-language-mnist">data set</a>. This data set had 27,000 images spread on 24 classes (one per letter with the J and Z excluded). We were getting good results (99 % of accuracy on the train and validation set), there were actually too good not to be suspicious. Indeed, when testing on real pictures the results were very poor. After checking a little the data set and looking at articles on the <a href="https://beetlebox.org/improving-convolutional-neural-networks-the-weaknesses-of-the-mnist-based-datasets-and-tips-for-improving-poor-datasets/">internet</a> we&rsquo;ve realized this data set was actually a set of 1704 images heavily transformed with rotation, brightness and so on to end up with a total of 27,000 images. Moreover this data set had not much variety in types of hands, environment and lighting.</p>
+<h3 id="data-processing-and-data-augmentation">Data processing and data augmentation</h3>
+<p>The training data set was split into two parts in order to create a training and a validation data set. This was done with the random_split function of pytorch.
+<strong>Handling the size the of training data set</strong> The first problem we had to tackle was the large size of the data set. On the first training, the Google Colab GPU was loading the images at a speed of 4Hz. Having 87,000 images (counting both training and validation data) it would have taken 6 hours for the first epoch (once the images are loaded the training is faster). After looking at some of the images of the data set, some were very repetitive, it was then possible to only take a sample of this images to create a proper and usable data set. Instead of creating only two data set from the initial data set (training and validation) we created three data sets: one for training, one for the validation and one residual with the unused images.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Train size: 10000</span>
+<span style="color:#75715e"># Validation size: 500</span>
+residue_size <span style="color:#f92672">=</span> len(dataset)<span style="color:#f92672">-</span> train_size
+                <span style="color:#f92672">-</span> validation_size
+[train, validation, residue]<span style="color:#f92672">=</span>
+random_split(dataset,
+[train_size, validation_size,residue_size])
+</code></pre></div><p>After this step, we were left with data sets of known size, however we did not know about the distribution of the different classes since the allocation was random. In order to make sure we had enough images for each class we examined the train data set and counted the images per label. You can find the distribution of the training data set in Figure 4, each label has more than 300 representatives, which is enough to train the model.</p>
+<p><strong>Adapting the data to the model</strong> The pre-trained model that we&rsquo;ve used expected a certain type of data. First the data had to be at least 3x224x224 while our was only 3x200x200. Then, the images had to be normalized using mean = [0.485, 0.456, 0.406]and std = [0.229, 0.224, 0.225]
+We&rsquo;ve used pytorch&rsquo;s Transform in order to modify the images accordingly.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> torchvision.transforms <span style="color:#f92672">as</span> tt
+
+transform <span style="color:#f92672">=</span> tt<span style="color:#f92672">.</span>Compose([
+    tt<span style="color:#f92672">.</span>ToTensor(),
+    tt<span style="color:#f92672">.</span>Resize((<span style="color:#ae81ff">224</span>,<span style="color:#ae81ff">224</span>)),
+    tt<span style="color:#f92672">.</span>Normalize(mean<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0.485</span>,<span style="color:#ae81ff">0.485</span>,<span style="color:#ae81ff">0.485</span>]
+                std<span style="color:#f92672">=</span>[<span style="color:#ae81ff">0.229</span>,<span style="color:#ae81ff">0.229</span>,<span style="color:#ae81ff">0.229</span>]),
+])
+</code></pre></div><p><strong>Data augmentation</strong> Now that we had reduced the number of images of the training data set, we used Data Augmentation in order to get better results. Data augmentation is adding some variety in the images in order for your model to be able to recognize better different type of images and prevent it from over-fitting.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">transform <span style="color:#f92672">=</span> tt<span style="color:#f92672">.</span>Compose([
+    tt<span style="color:#f92672">.</span>RandomCrop(<span style="color:#ae81ff">200</span>, padding<span style="color:#f92672">=</span><span style="color:#ae81ff">25</span>,
+            padding_mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;reflect&#39;</span>),
+    tt<span style="color:#f92672">.</span>RandomHorizontalFlip(),
+    tt<span style="color:#f92672">.</span>RandomRotation(<span style="color:#ae81ff">10</span>),
+    tt<span style="color:#f92672">.</span>RandomPerspective
+            (distortion_scale<span style="color:#f92672">=</span><span style="color:#ae81ff">0.2</span>),
+    <span style="color:#75715e">#... previous transforms</span>
+    ])
+</code></pre></div><h3 id="creation-of-the-model">Creation of the model</h3>
+<p>Since the data sets are quite complex, in order the get the best results possible, we&rsquo;ve decided to use transfer learning by using a pre-trained model. Pytorch provides us with several possibilities of pre-trained models. Those models are previously trained for image classification on the ImageNet data set, which gives them better results after training them with our own data.</p>
+<p>We&rsquo;ve decided to use the Residual Neural Network with 34 layers (ResNet34).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    model <span style="color:#f92672">=</span> torchvision<span style="color:#f92672">.</span>models<span style="color:#f92672">.</span>resnet34
+                    (pretrained <span style="color:#f92672">=</span> True)
+    model<span style="color:#f92672">.</span>fc <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>Linear
+                (model<span style="color:#f92672">.</span>fc<span style="color:#f92672">.</span>in_features,<span style="color:#ae81ff">29</span>)
+</code></pre></div><p>After loading the model, we also need to modify the last layer in order to have the number of output corresponding to the number of classes of the data set (here 29).</p>
+<h3 id="model-results">Model results</h3>
+<p>The ResNet model was trained during five epochs.The optimizer used was the Adam optimizer. The training was made on the Google Colab&rsquo;s allocated GPU and took 4.2 minutes (with an additional 35 minutes for loading the images). The training set was composed of 10,000 images and the validation set of 500 images.</p>
+<p>In the figure 5 we can see a graph representing the evolution of the loss and the accuracy over time. The loss used was the cross-entropy loss. On the last validation in the 5th epoch, the loss is at 0.02 while the accuracy is 99%.</p>
+<p>After the training, the model has a 75% accuracy on the test data set. The sign are relatively well recognized. You can find on the figure 6 the confusion matrix.</p>
+<p>We can still explain some recognition issues:</p>
+<ol>
+<li>On the confusion matrix, we can see that the model has trouble discerning V and K. Indeed 73% of the V images where labeled by the model as K. This is due to the proximity of those tow sign as you can see on figure 7. One idea to better make out those two classes could be find images of the sign of the letter K from the side on order to see the index finger pop out.</li>
+<li>There is ,as well, trouble defining the letters S and T. Indeed those two letters are part of a group of letters that look alike, such as the letter A,E and X.</li>
+</ol>
+<p><strong>Using the trained model</strong> In order to be able to use the model on an interface as required, we had to be able to save and reload the model onto the python code of the interface. In order to save the model, we&rsquo;ve saved with the function torch.save. However, instead of just saving the whole model, we have used state_dict() in order to save only the parameters of the model which is the only relevant information needed.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#75715e">#Saving the model</span>
+    torch<span style="color:#f92672">.</span>save(
+        model<span style="color:#f92672">.</span>state_dict(),<span style="color:#e6db74">&#34;model.pth&#34;</span>)
+
+    <span style="color:#75715e">#Loading the previously saved model</span>
+    model <span style="color:#f92672">=</span> torchvision<span style="color:#f92672">.</span>models<span style="color:#f92672">.</span>resnet34
+                (pretrained <span style="color:#f92672">=</span> True)
+    model<span style="color:#f92672">.</span>fc <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>nn<span style="color:#f92672">.</span>Linear
+                (model<span style="color:#f92672">.</span>fc<span style="color:#f92672">.</span>in_features,<span style="color:#ae81ff">29</span>)
+    model<span style="color:#f92672">.</span>load_state_dict(
+                torch<span style="color:#f92672">.</span>load(<span style="color:#e6db74">&#34;model.pth&#34;</span>))
+</code></pre></div><h2 id="asl-recognition-interface">ASL Recognition interface</h2>
+<p>The interface should be able to display the webcam image in real time and the translated text.</p>
+<h3 id="video-capture">Video Capture</h3>
+<p>In order to get the video capture of the webcam, we&rsquo;ve used OpenCV. A video capture class was created in the VideoCapture.py file. In this class, the <strong>init</strong> function will open the video capture with cv2.
+The function get_frame returns the current frame of the video capture and the bounding box of the hand. This will allow the interface to control its frame rate by calling the get_frame function at regular intervals.</p>
+<p>Every eight frame retrieved by the application, the bounding box of the hand (if any) will be computed.</p>
+<h3 id="creation-of-the-interface">Creation of the interface</h3>
+<p>The interface was created with Tkinter. It is created in a the class ASLRecognizerApp in the file with the same name.</p>
+<p>The interface is split into 3 parts:</p>
+<ol>
+<li>The video capture display on the top left side created with the VideoCapture class.</li>
+<li>The display of a explaining image of all the gestures displayed in a tkinter.Label</li>
+<li>The text display at the bottom of the window with a clear button.</li>
+</ol>
+<p>How the interface works is: Every 2 ms the update function is called. This function will get the current frame from the video capture and the latest bounding box of the hand. It will display both the frame and a blue rectangle of the bounding box. Every five frame update, given that the bounding box of the hand isn&rsquo;t the whole webcam image, the image will be snapped and sent to the model for prediction. When an image is snapped a red rectangle appears around it.
+The prediction is handled by the function \lstinline{gestureDetection} that will update the text display according to the model prediction.</p>
+<h2 id="results">Results</h2>
+<p>Overall, the interface is easy to use and allows the user to translate from the ASL signs to sentences.
+You can find a picture of the interface in figure 9.</p>
+<p>After testing the interface and the solution with real sentences, we see that it takes approximately 20 seconds to write a 4 letter word like &ldquo;Hello&rdquo; and it can take up to 2 minutes to write a sentence with 4 work like &ldquo;This is our project&rdquo;.
+We can also add that the some gesture can be quite difficult to make. There is definitely a learning curve to learn how to use the ASL language fluently and the proper way which can make the interface harder to use and work in the beginning.</p>
+<h2 id="possible-improvement">Possible improvement</h2>
+<p>The interface works well in detecting the letters however it sometimes happens that the wrong letter is written and the delete sign has to be made. The idea would be to be able to minimize the use of this sign. The aim would be to be able to write a sentence without having to do a sign twice in order to have the right letter. One idea to minimize the use of the delete sign would be to display the recognized letter only if the sign detected has been the same twice in a row. This would make the letter recognition more accurate but it can take longer to detect.</p>
+<p>Another possibility would be to use active learning. The idea would be to add another section on the interface in order to create new images of each sign in order to create new images to train on. This idea would better the sign recognition but is actually really time consuming since in order for it to work the set of images has to be at least 20% as large as the original data set. Then in order for the model not to over-fit the particular hand that was taking the new images, the images have to reflect as well a variety in background, lighting and hand.
+One other enhancement would be to make the process of hand detection automatic, by making a control process that decide when the snapshot should be taken.
+We could also think of making a more precise hand detection, by using Hand Keypoints detection which is the process of finding the joints on the fingers as well as the finger-tips in a given frame, by the use of existing databases that provide hand keypoints <a href="http://domedb.perception.cs.cmu.edu/handdb.html">images</a>, we can train a model based on hand keypoints instead of hand images. That way we can detect more precisely the hand as well as the gesture done.
+Finally, one idea to better fit the purpose of the interface, which is to make the ASL language more accessible to everyone, could be to turn it to a educational interface as well. This could be done by adding another section to the interface where the translation is reversed. Reverse meaning instead of translating from ASL sign to sentence, using virtual humans animated in 3D doing the ASL signs of a sentences previously written by the user.</p>
+
+    
+    <div class = 'post_extra'><div class = 'copy' data-share = 'Copy' data-copied = 'Copied'><svg>
+  <use xlink:href="#copy"></use>
+</svg>
+</div>
+
+    </div>
+
+    
+  </article>
+  
+  <aside><h3>More from Soline Hayes</h3>
+<ul class='posts aside'>
+<li class = 'post_item'>
+  <a class = 'post_card' href='https://solinehayes.github.io/posts/project-boatkartlocomotion/' title = 'Project: Kart Boat Locomotion' style = 'background-image: url(https://solinehayes.github.io/images/projectAssets/project-image.jpg);'>
+  </a>
+  <div class = 'excerpt'>
+    <div class = 'excerpt_meta'><div class = 'copy' data-share = 'Copy' data-copied = 'Copied'><svg>
+  <use xlink:href="#copy"></use>
+</svg>
+</div>
+
+    </div>
+    <h3 class = 'post_link'>
+      <a href='https://solinehayes.github.io/posts/project-boatkartlocomotion/'>Project: Kart Boat Locomotion</a>
+    </h3>
+    <p class = 'pale'>Virtual Reality Project: Kart Boat locomotion Idea of the project The idea of this project …</p>
+  </div>
+</li>
+
+<li class = 'post_item'>
+  <a class = 'post_card' href='https://solinehayes.github.io/posts/lecture3-locomotioninvr/' title = 'Lecture 3:  Locomotion in Virtual Reality' style = 'background-image: url(https://solinehayes.github.io/images/Locomotion/environment.png);'>
+  </a>
+  <div class = 'excerpt'>
+    <div class = 'excerpt_meta'><div class = 'copy' data-share = 'Copy' data-copied = 'Copied'><svg>
+  <use xlink:href="#copy"></use>
+</svg>
+</div>
+
+    </div>
+    <h3 class = 'post_link'>
+      <a href='https://solinehayes.github.io/posts/lecture3-locomotioninvr/'>Lecture 3:  Locomotion in Virtual Reality</a>
+    </h3>
+    <p class = 'pale'>Locomotion in Virtual Reality Locomotion is VR is a very important and not yet solved …</p>
+  </div>
+</li>
+
+</ul>
+
+  </aside>
+  
+</div>
+<script src = 'https://solinehayes.github.io/js/autosize.min.js'></script>
+<script src = 'https://solinehayes.github.io/js/timeago.js'></script>
+    </main><svg width="0" height="0" class="hidden">
+  <symbol viewBox="0 0 699.428 699.428" xmlns="http://www.w3.org/2000/svg" id="copy">
+    <path d="M502.714 0H240.428C194.178 0 153 42.425 153 87.429l-25.267.59c-46.228 0-84.019 41.834-84.019 86.838V612c0 45.004 41.179 87.428 87.429 87.428H459c46.249 0 87.428-42.424 87.428-87.428h21.857c46.25 0 87.429-42.424 87.429-87.428v-349.19zM459 655.715H131.143c-22.95 0-43.714-21.441-43.714-43.715V174.857c0-22.272 18.688-42.993 41.638-42.993l23.933-.721v393.429C153 569.576 194.178 612 240.428 612h262.286c0 22.273-20.765 43.715-43.714 43.715zm153-131.143c0 22.271-20.765 43.713-43.715 43.713H240.428c-22.95 0-43.714-21.441-43.714-43.713V87.429c0-22.272 20.764-43.714 43.714-43.714H459c-.351 50.337 0 87.975 0 87.975 0 45.419 40.872 86.882 87.428 86.882H612zm-65.572-349.715c-23.277 0-43.714-42.293-43.714-64.981V44.348L612 174.857zm-43.714 131.537H306c-12.065 0-21.857 9.77-21.857 21.835s9.792 21.835 21.857 21.835h196.714c12.065 0 21.857-9.771 21.857-21.835 0-12.065-9.792-21.835-21.857-21.835zm0 109.176H306c-12.065 0-21.857 9.77-21.857 21.834 0 12.066 9.792 21.836 21.857 21.836h196.714c12.065 0 21.857-9.77 21.857-21.836 0-12.064-9.792-21.834-21.857-21.834z"
+    ></path>
+  </symbol>
+  <symbol viewBox="0 0 60.015 60.015" xmlns="http://www.w3.org/2000/svg" id="reply">
+    <path d="M42.007 0h-24c-9.925 0-18 8.075-18 18v14c0 9.59 7.538 17.452 17 17.973v8.344a1.694 1.694 0 0 0 1.699 1.698c.44 0 .873-.173 1.198-.498l1.876-1.876C26.708 52.713 33.259 50 40.227 50h1.78c9.925 0 18-8.075 18-18V18c0-9.925-8.075-18-18-18zm16 32c0 8.822-7.178 16-16 16h-1.78c-7.502 0-14.556 2.921-19.86 8.226l-1.359 1.359V44a1 1 0 1 0-2 0v3.949c-8.356-.52-15-7.465-15-15.949V18c0-8.822 7.178-16 16-16h24c8.822 0 16 7.178 16 16v14z"></path>
+  </symbol>
+</svg>
+<footer class = 'footer'>
+  <div class = 'footer_inner wrap pale'>
+    <p>&copy;&nbsp;<span class = 'year'></span>&nbsp;Soline Hayes.
+    Designed by  <a href = 'https://www.linkedin.com/in/soline-hayes-827646151/' title = 'Linkedin Profile'>Soline</a></p>
+  </div>
+</footer>
+<script src = 'https://solinehayes.github.io/js/index.min.e4c79ed3ecfc1d5121c425f0353cb0f9315837d6b4d68fd6536503cf71658097560e7fa2219a1d8ae4655d49aa75ba15f0ac34e81717dc78c50b2d8cd4ebd9ee.js'></script>
+
+  </body>
+</html>

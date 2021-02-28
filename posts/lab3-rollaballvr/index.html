@@ -8,15 +8,15 @@
 <meta property = 'og:locale' content = 'en_US' />
 <meta property="og:type" content="article">
 <meta property = 'og:title' content = 'Lab 3: Adapt Roll A Ball to Virtual Reality' />
-<meta name="description" content="">
-<meta property = 'og:description' content = ''>
+<meta name="description" content="In this article we will adapt a simple roll a ball game to virtual reality. In the last article we created a roll a ball game with a few enhancement. This one …">
+<meta property = 'og:description' content = 'In this article we will adapt a simple roll a ball game to virtual reality. In the last article we created a roll a ball game with a few enhancement. This one …'>
 <meta property = 'og:url' content = 'https://solinehayes.github.io/posts/lab3-rollaballvr/' />
-<meta property = 'og:image' content = 'images/%!s()'/>
+<meta property = 'og:image' content = 'https://solinehayes.github.io/images/VRRollABall/cover.png'/>
 <meta name = 'twitter:card' content = 'summary_large_image' />
 <meta name = 'twitter:creator' content = ''>
 <meta name = 'twitter:title' content = 'Lab 3: Adapt Roll A Ball to Virtual Reality' />
-<meta property = 'twitter:description'  content = ''/>
-<meta name = 'twitter:image' content = 'images/%!s()' />
+<meta property = 'twitter:description'  content = 'In this article we will adapt a simple roll a ball game to virtual reality. In the last article we created a roll a ball game with a few enhancement. This one …'/>
+<meta name = 'twitter:image' content = 'https://solinehayes.github.io/images/VRRollABall/cover.png' />
 <link rel='apple-touch-icon' sizes='180x180' href='https://solinehayes.github.io/images/icons/apple-touch-icon.png'>
 <link rel='icon' type='image/png' sizes='32x32' href='https://solinehayes.github.io/images/icons/favicon-32x32.png'>
 <link rel='icon' type='image/png' sizes='16x16' href='https://solinehayes.github.io/images/icons/favicon-16x16.png'>
@@ -51,13 +51,98 @@
 
 
     <main>
-  
 
-<section class = 'post_header' style = 'background-image:url(https://solinehayes.github.io/images/thumbnail.svg);'>
+<section class = 'post_header' style = 'background-image:url(https://solinehayes.github.io/images/VRRollABall/cover.png);'>
   <h1 class='post_title'>Lab 3: Adapt Roll A Ball to Virtual Reality</h1>
 </section>
 <div class = 'post'>
-  <article class='post_content'>
+  <article class='post_content'><p>In this article we will adapt a simple roll a ball game to virtual reality. In the last article we created a roll a ball game with a few enhancement. This one will be a little hard to adapt so we will just go from a simple Roll A Ball as described in this <a href="https://learn.unity.com/project/roll-a-ball">tutorial</a>.</p>
+<h1 id="adapt-a-projet-for-virtual-reality">Adapt a projet for virtual reality</h1>
+<p>We are here dealing with a Oculus Quest, some things will defer if you want to use an Oculus Rift.</p>
+<ol>
+<li>After you&rsquo;ve created your new project, go to File &gt; Build settings. Click on Android and switch plateform
+
+<picture class = 'nav_logo'>
+  <source srcset = 'https://solinehayes.github.io/images/VRRollABall/BuildSettings.png' media="(prefers-color-scheme: dark)">
+  <img srcset = 'https://solinehayes.github.io/images/VRRollABall/BuildSettings.png' alt = 'Build Settings'>
+</picture>
+</li>
+<li>Click on Player settings at the bottom left</li>
+<li>In other settings &gt; Graphic API remove Vulkan
+
+<picture class = 'nav_logo'>
+  <source srcset = 'https://solinehayes.github.io/images/VRRollABall/PlayerOtherSettings.png' media="(prefers-color-scheme: dark)">
+  <img srcset = 'https://solinehayes.github.io/images/VRRollABall/PlayerOtherSettings.png' alt = 'Other Settings'>
+</picture>
+</li>
+<li>Below in the XR settings, tick the Virtual Reality Supported checkbox</li>
+<li>Click on the &lsquo;+&rsquo; and add Oculus
+
+<picture class = 'nav_logo'>
+  <source srcset = 'https://solinehayes.github.io/images/unity-RollABall/XRSettings.png' media="(prefers-color-scheme: dark)">
+  <img srcset = 'https://solinehayes.github.io/images/VRRollABall/XRSettings.png' alt = 'XR Settings'>
+</picture>
+</li>
+<li>Open an internet page and go to the Unity asset store.</li>
+<li>Search the Oculus Integration asset and add it to your assets</li>
+<li>In Unity, go to window &gt; Package Manager, and My Assets. Import the Oculus Integration onto your project</li>
+</ol>
+<p>Now everything is setup you can create a basic VR scene!</p>
+<ol>
+<li>Delete the main camera, you won&rsquo;t need it anymore since the headset will be your camera.</li>
+<li>In the newly created folder Oculus, select VR&gt;Prefab&gt;OVRCameraRig and add it to your scene by dragging it onto the Hierarchy.</li>
+<li>In the inspector, in the OVRManager, go to tracking and select it to &ldquo;Floor level&rdquo;</li>
+<li>Add the OVRControllerPrefabs under their hand anchors and rename them to differentiate the left from the right one.</li>
+</ol>
+<p>Now you have the most basic VR-ready unity project. A good hack not to have to do this all over again is to create a GitHub repository with those basics settings and scene and be able to use it as a basic template.</p>
+<p><a href="https://github.com/solinehayes/Empty-VR-Project">Here is the repository</a> I created with the empty VR scene.</p>
+<h1 id="add-roll-a-ball">Add Roll a Ball</h1>
+<p>The idea of the adaptation is be in a VR enviroment with a table and the Roll A Ball game on it. The aim is to be able to grab it and make the ball move and catch the gems by simply rotating the controller.
+The first step is to create a unity package with the before hand created Roll A Ball. Select Asset in the project window, in the Asset tab, select export package and save it to you computer.
+In order to import it to your new VR project you go to Assets &gt; Import Package &gt; Custom Package and select the package. In order to fix the errors received upon the import you can rename the PlayerController of you newly imported package and comment the InputSystem import in the beginning of the file.</p>
+<p>The idea is that you pick the Roll a Ball board by clicking on the back trigger button on the Oculus controller when you collide with the board. You can get the trigger value with:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">triggerValue = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger,controller);
+</code></pre></div><p>In order to know when the controllers collide with the board we use colliders with the OnTrigger option on. Thanks to this option we can change the boolean isColliding to true in the OnTriggerEnter function called automatically.</p>
+<p>We just have to be careful about the colliders so that the ones of the game don&rsquo;t affect those of the controllers. In order to prevent yourself from those problems you can create 2 different layer: one for Roll A Ball and the other one for selection and define how theu affect each other in the Layer collision matrix in the project settings.</p>
+
+<picture class = 'nav_logo'>
+  <source srcset = 'https://solinehayes.github.io/images/unity-RollABall/LayerCollisionMatrix.png' media="(prefers-color-scheme: dark)">
+  <img srcset = 'https://solinehayes.github.io/images/VRRollABall/LayerCollisionMatrix.png' alt = 'Layer Collision Matrix'>
+</picture>
+
+<p>When the collider is colliding with the board and the trigger value is higher than a certain threshold you have to link the board to the controller.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">isSelected = <span style="color:#66d9ef">true</span>;
+selectedObj.transform.parent = <span style="color:#66d9ef">this</span>.transform; <span style="color:#75715e">// The board will move with the controller
+</span><span style="color:#75715e"></span>Rigidbody rb = selectedObj.GetComponent&lt;Rigidbody&gt;();
+rb.isKinematic = <span style="color:#66d9ef">true</span>; <span style="color:#75715e">// The physics of this object is defined by a script now not by physics laws like gravity
+</span><span style="color:#75715e"></span>rb.useGravity = <span style="color:#66d9ef">false</span>;
+rb.velocity = Vector3.zero;
+rb.angularVelocity = Vector3.zero;
+</code></pre></div><p>Then when the board is released we want to reset the normal physics to the board</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#">isSelected = <span style="color:#66d9ef">false</span>;
+selectedObj.transform.parent = <span style="color:#66d9ef">null</span>;<span style="color:#75715e">//The board movement is no longer linked with the controller
+</span><span style="color:#75715e"></span>Rigidbody rb = selectedObj.GetComponent&lt;Rigidbody&gt;();
+rb.useGravity = <span style="color:#66d9ef">true</span>;<span style="color:#75715e">//The board will be subject to physics laws
+</span><span style="color:#75715e"></span>rb.isKinematic = <span style="color:#66d9ef">false</span>;
+rb.velocity = OVRInput.GetLocalControllerVelocity(controller); <span style="color:#75715e">// The board is thrown with the hand controller velocity
+</span><span style="color:#75715e"></span>rb.angularVelocity = OVRInput.GetLocalControllerAngularVelocity(controller);
+</code></pre></div><p>You can now pick up the board and play the roll a ball game. You can also experiment and add some features like holes for the ball not to fall in for instance to make your game a little more challenging.</p>
+
+<picture class = 'nav_logo'>
+  <source srcset = 'https://solinehayes.github.io/images/VRRollABall/cover.png' media="(prefers-color-scheme: dark)">
+  <img srcset = 'https://solinehayes.github.io/images/VRRollABall/cover.png' alt = 'VR Roll a ball game'>
+</picture>
+
+<p>You can find the full repository of the <a href="https://github.com/solinehayes/VR-RollABall">VR roll a ball</a> in my github.</p>
+<h1 id="debuging-with-oculus-and-linux">Debuging with Oculus and Linux</h1>
+<p>I am a Linux user and the big issue with Oculus and Linux is that the Oculus link allowing you to run directly the game by clicking play in unity. It is quite okay to have to use Build and run to try your game. However by doing this you have no console it gets way harder to debug.
+The following video is a great help for all linux or mac user to debug properly your VR applications:
+
+<div class = 'video'>
+  <iframe src='https://www.youtube.com/embed/AtOX6bXcQJE?controls=1&rel=0'></iframe>
+</div>
+</p>
+
     
     <div class = 'post_extra'><div class = 'copy' data-share = 'Copy' data-copied = 'Copied'><svg>
   <use xlink:href="#copy"></use>

@@ -78,7 +78,36 @@
 <p>I looked on the internet how to add an image in markdown, it seems pretty straight forward:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-md" data-lang="md">![<span style="color:#f92672">image description</span>](<span style="color:#a6e22e">link to the image</span>)
 </code></pre></div><p>By looking the architecture of the project created automatically by Hugo I added my picture to the already created folder: &ldquo;resources/images&rdquo;. But with this, impossible to display the image, with relative or not path, nothing seemed to work.
-The only way I found was to actually put the image into the content folder where the post is which is not really &ldquo;clean&rdquo; or in the static/images folder and use {{&lt; picture &ldquo;ImageName&rdquo; &ldquo;ImageNameDarkMode&rdquo; &ldquo;ImageCaption&rdquo; &gt;}}</p>
+The only way I found was to actually put the image into the content folder where the post is which is not really &ldquo;clean&rdquo; or in the static/images folder and use {{&lt; picture &ldquo;ImageName&rdquo; &ldquo;ImageNameDarkMode&rdquo; &ldquo;ImageCaption&rdquo; &gt;}} because of the shortcut created by the theme creator.</p>
+<h2 id="put-the-website-online">Put the website online</h2>
+<p>Now that the blog was setup, the last thing to do is to deploy it online. In order to do this I will use <a href="https://docs.github.com/en/github/working-with-github-pages/about-github-pages">GitHub pages</a> which allow you to put website to the address: https://[GITHUB_USERNAME].github.io</p>
+<p>The first thing you have to do for this is update the config.toml file. The most important thing you have to modify is the base url:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">baseurl <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://solinehayes.github.io&#34;</span> <span style="color:#f92672">//</span> used to be http:<span style="color:#f92672">//</span>example<span style="color:#f92672">.</span>org
+</code></pre></div><p>Now that this is updated, you can go onto your terminal to the base of your project and type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">hugo
+</code></pre></div><p>This command will create a folder &ldquo;public&rdquo; and build your website onto it.
+Now that this is done we will need to put this public folder to a new github repository:</p>
+<ol>
+<li>Create a new public repository with the name [GITHUB_USERNAME].github.io (for example for me solinehayes.github.io)</li>
+<li>Create the repository WITHOUT a readme. (You can create one with but you will need to delete it later on so there is no use)</li>
+<li>In the command line of your public folder type:
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git init
+git add .
+git commit -m <span style="color:#e6db74">&#34;initial commit&#34;</span>
+git remote add origin <span style="color:#f92672">[</span>YOUR_GITHUB_REPOSITORY_URL<span style="color:#f92672">]</span>
+git push origin master
+</code></pre></div><p>This will link the public folder to this new repository.</p>
+</li>
+<li>Go onto github to your newly filled repository</li>
+<li>Go to settings and scroll down to the Github Pages part.
+
+<picture class = 'nav_logo'>
+  <source srcset = 'https://solinehayes.github.io/images/blog-githubPages.png' media="(prefers-color-scheme: dark)">
+  <img srcset = 'https://solinehayes.github.io/images/blog-githubPages.png' alt = 'Github Pages'>
+</picture>
+
+Select the branch you want to deploy (here master). Wait until it turns green (takes 30s or so to deploy) and there you have it you just have to click on the link and you have your online website.</li>
+</ol>
 
     
     <div class = 'post_extra'><div class = 'copy' data-share = 'Copy' data-copied = 'Copied'><svg>

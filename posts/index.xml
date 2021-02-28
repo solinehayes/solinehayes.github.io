@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Soline Hayes</title>
+    <link>https://solinehayes.github.io/posts/</link>
+    <description>Recent content in Posts on Soline Hayes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Soline Hayes</copyright>
+    <lastBuildDate>Mon, 04 Jan 2021 11:56:37 +0100</lastBuildDate><atom:link href="https://solinehayes.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Project: Kart Boat Locomotion</title>
+      <link>https://solinehayes.github.io/posts/project-boatkartlocomotion/</link>
+      <pubDate>Mon, 04 Jan 2021 11:56:37 +0100</pubDate>
+      
+      <guid>https://solinehayes.github.io/posts/project-boatkartlocomotion/</guid>
+      <description>Virtual Reality Project: Kart Boat locomotion Idea of the project The idea of this project is to add locomotion to the following environment. In the environment you are supposed to finish the track as fast as possible while getting the most coins. In order to work perfeclty the locomotion has to be fast, accurate to get the most coins but still prevent some common VR issues like motion sickness.
+The idea of my locomotion is to be able to move thanks to a boat kart.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 3:  Locomotion in Virtual Reality</title>
+      <link>https://solinehayes.github.io/posts/lecture3-locomotioninvr/</link>
+      <pubDate>Wed, 30 Dec 2020 17:09:29 +0100</pubDate>
+      
+      <guid>https://solinehayes.github.io/posts/lecture3-locomotioninvr/</guid>
+      <description>Locomotion in Virtual Reality Locomotion is VR is a very important and not yet solved subject. Indeed, it faces certain issues: first you can not do only walking. If the map is really big, given that you have enough gaming space in real life (which is not a real given&amp;hellip;) it will be way too tiring to walk the entire game. However you can not just move with a joystick as in a 2D game since it will not be entirely imersive and you face motion sickness.</description>
+    </item>
+    
+    <item>
+      <title>Lab 3: Adapt Roll A Ball to Virtual Reality</title>
+      <link>https://solinehayes.github.io/posts/lab3-rollaballvr/</link>
+      <pubDate>Wed, 30 Dec 2020 16:49:05 +0100</pubDate>
+      
+      <guid>https://solinehayes.github.io/posts/lab3-rollaballvr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Lab 2 : Roll A Ball</title>
+      <link>https://solinehayes.github.io/posts/lab2-rollaball/</link>
+      <pubDate>Mon, 30 Nov 2020 18:11:33 +0100</pubDate>
+      
+      <guid>https://solinehayes.github.io/posts/lab2-rollaball/</guid>
+      <description>Lab 2: Roll A Ball The first practicle asignment of the class is to create a first Unity game.
+Roll a ball the is a unity tutorial created for beginners to make their first game. The principle is simple: you have to create a plan with a ball and collectibles. In order to win the game the ball has to collect a certain number of collectible.
+ Creation of the project and first visual aspects  After creating the project, we need to add the first essential aspects of the game: the plane and the ball.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 2: The Ulimate Display</title>
+      <link>https://solinehayes.github.io/posts/lecture2-ultimatedisplay/</link>
+      <pubDate>Sat, 21 Nov 2020 20:21:43 +0100</pubDate>
+      
+      <guid>https://solinehayes.github.io/posts/lecture2-ultimatedisplay/</guid>
+      <description>(Picture: TomsHardware)
+Lecture 2: The Ultimate Display In 1965, Ivan E. Sutherland, a pioneer in computer human interaction and virtual reality, publised &amp;lsquo;The Ultimate display&amp;rsquo;. A paper in which he describes a dream of an ultimate display. According to him the ultimate display would be a display using all of the user&amp;rsquo;s body - not only the arms as a computer does-, and all of its senses -not only the touch, audio and vision as nowadays display does but incorporate smell and taste-.</description>
+    </item>
+    
+    <item>
+      <title>Lecture 1: Hyper Reality</title>
+      <link>https://solinehayes.github.io/posts/lecture1-hyperreality/</link>
+      <pubDate>Sat, 21 Nov 2020 19:21:43 +0100</pubDate>
+      
+      <guid>https://solinehayes.github.io/posts/lecture1-hyperreality/</guid>
+      <description>After watching this video on Hyper Reality, we had to think about different scenarios of how mixed reality can be a danger for the user. This video on Hyper Reality shows a possible dystopian future where the augmented reality has developped and his now used by everyone and control the life of all citizens. There is an omnipresence of publicities to the point that it gets oppressive. In addition, the character presented on the video also is a victim to a cyber attack on its augmented reality.</description>
+    </item>
+    
+    <item>
+      <title>Lab1: Setup Unity</title>
+      <link>https://solinehayes.github.io/posts/lab1-unity/</link>
+      <pubDate>Sat, 21 Nov 2020 18:20:43 +0100</pubDate>
+      
+      <guid>https://solinehayes.github.io/posts/lab1-unity/</guid>
+      <description>Lab 1: Setup Unity on Linux Unity is one of the leading game development and design platform nowadays. Unity is not only free but also allows you to create cross-platform games, meaning you can very well develop for mobile phones, computer or virtual head sets like the Oculus Quest. The first thing to do to install unity is :
+  create an account and register to a licence.
+This is done directly on the unity website.</description>
+    </item>
+    
+    <item>
+      <title>Lab1: Setup Blog</title>
+      <link>https://solinehayes.github.io/posts/lab1-blog/</link>
+      <pubDate>Sat, 21 Nov 2020 17:20:43 +0100</pubDate>
+      
+      <guid>https://solinehayes.github.io/posts/lab1-blog/</guid>
+      <description>Lab1: Setup a blog In my final year of Master, I enrolled in the class IGR301: Human computer interaction for Mixed Reality taught by Jan Gugenheimer. Inspired by the MIT class How to make (almost) everything, it was ask to setup a blog a create a article for all of the assignement.
+The first step of the first lab was to setup this blog where all of my future articles will be posted.</description>
+    </item>
+    
+  </channel>
+</rss>
